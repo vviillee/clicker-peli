@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>KlikkausPeli</title>
+    <link rel="stylesheet" href="style.css">
+</head>    
+<h4 id="Rahaa"></h4>
+<h6 id ="RahaaSekunnissa"></h6>
+<button id ="button" buttom type=".button" onclick ="gainCoin()">Klikkaa</button>
+<body>
+<script>
+var coins = 0;
+var coinsPS = 0;
+var coinsPC = 1;
+
+function gainCoin() {
+    coins += coinsPC;
+}
+
+setInterval (function rencerCoins() {
+    document.getElementById("Rahaa").innerHTML = "Rahaa" + " " + coins;
+    
+})
+
+setInterval(function renderCoinsPS() {
+    document.getElementById("RahaaSekunnissa").innerHTML = "Rahaa Sekunnissa" + " " + coinsPS;
+})
+
+function gainCoinsPS() {
+    if(coins >= 100){
+        coinsPS += 5;
+        coins -= 100;
+    }
+    else{
+        alert("Rahat Eivät Valitettavasti Riitä Tähän (maksaa 100).");
+    }
+}
+
+setInterval(function gainCoinsPS() {
+    coins += coinsPS;
+}, 1000)
+
+var button = document.querySelector('button');
+
+</script>  
+<button id="button1" button type="button" onclick="gainCoinsPS()">5 Rahaa Sekunnissa</button>
+</body>
+</html>
